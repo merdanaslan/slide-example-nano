@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solana IDE Theme - Superteam Germany</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Use a strict coder/monospace font like Fira Code or JetBrains, let's use Fira Code -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="desktop">
+        <div class="canvas" id="presentation-canvas">
+
+            <!-- Faux IDE Window Frame -->
+            <div class="ide-header">
+                <div class="mac-buttons">
+                    <div class="mac-btn close"></div>
+                    <div class="mac-btn min"></div>
+                    <div class="mac-btn max"></div>
+                </div>
+                <div class="ide-title">~/superteam-germany/solana-ecosystem.ts &mdash; VS Code</div>
+            </div>
+
+            <!-- Main IDE Layout -->
+            <div class="ide-body">
+                
+                <!-- Line Numbers Sidebar (Static Visual) -->
+                <div class="sidebar-lines">
+                    1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9<br>10<br>11<br>12<br>13<br>14<br>15<br>16<br>17<br>18<br>19<br>20<br>21
+                </div>
+
+                <!-- Slides Content injected as "code" -->
+                <div class="slides-wrapper" id="slides-wrapper">
+                    
+                    <!-- Slide 1: Welcome JSON -->
+                    <div class="slide">
+                        <div class="code-block">
+                            <span class="comment">// 01_introduction.ts</span><br>
+                            <span class="keyword">const</span> <span class="variable">superteamDE</span> <span class="operator">=</span> {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="string-key">"title"</span>: <span class="string">"The Heartbeat of Germany's Solana Community"</span>,<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="string-key">"mission"</span>: <span class="string">"Uniting innovation, creativity, and builders to deploy the next wave of Web3 unicorns."</span>,<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="string-key">"status"</span>: <span class="string">"Active"</span>,<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="string-key">"nodes_online"</span>: <span class="number">true</span><br>
+                            };<br><br>
+                            <span class="keyword">export default</span> <span class="variable">superteamDE</span>;
+                        </div>
+                        <div class="terminal-logo">
+                            <img src="../logos/superteam-white.png" height="30" alt="ST">
+                        </div>
+                    </div>
+
+                    <!-- Slide 2: Stats via Array -->
+                    <div class="slide">
+                        <div class="code-block">
+                            <span class="comment">/** <br>
+                             * Solana's Secret Sauce.<br>
+                             * We aggressively expand the Solana ecosystem in Germany.<br>
+                             */</span><br><br>
+                            <span class="keyword">const</span> <span class="variable">ecosystemStats</span> <span class="operator">:</span> <span class="type">Ecosystem[]</span> <span class="operator">=</span> [<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;{<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string-key">"metric"</span>: <span class="string">"Core Members"</span>,<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string-key">"value"</span>: <span class="number">150</span>,<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string-key">"benefit"</span>: <span class="string">"Connect with the brightest devs instantly."</span><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;},<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;{<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string-key">"metric"</span>: <span class="string">"Advantage"</span>,<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string-key">"value"</span>: <span class="string">"First-Mover"</span>,<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="string-key">"benefit"</span>: <span class="string">"Early access to high-growth startups."</span><br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;}<br>
+                            ];
+                        </div>
+                    </div>
+
+                    <!-- Slide 3: API / Pillars -->
+                    <div class="slide">
+                        <div class="code-block">
+                            <span class="comment">// 03_core_pillars.js</span><br>
+                            <span class="keyword">import</span> { <span class="variable">Router</span> } <span class="keyword">from</span> <span class="string">'@solana/superteam'</span>;<br><br>
+                            <span class="keyword">const</span> <span class="variable">router</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="function">Router</span>();<br><br>
+                            <span class="comment">// 1. Equipping builders with tools, educational content, and workshops.</span><br>
+                            <span class="variable">router</span>.<span class="function">post</span>(<span class="string">'/empower-founders'</span>, <span class="keyword">async</span> (<span class="variable">req</span>, <span class="variable">res</span>) <span class="operator">=></span> { ... });<br><br>
+                            
+                            <span class="comment">// 2. Connecting a vibrant network of tech veterans via high-value IRL events.</span><br>
+                            <span class="variable">router</span>.<span class="function">get</span>(<span class="string">'/foster-connections'</span>, <span class="keyword">async</span> (<span class="variable">req</span>, <span class="variable">res</span>) <span class="operator">=></span> { ... });<br><br>
+                            
+                            <span class="comment">// 3. Premier hackathons for intense mentorship and massive direct grants.</span><br>
+                            <span class="variable">router</span>.<span class="function">put</span>(<span class="string">'/accelerate-growth'</span>, <span class="keyword">async</span> (<span class="variable">req</span>, <span class="variable">res</span>) <span class="operator">=></span> { ... });
+                        </div>
+                    </div>
+
+                    <!-- Slide 4: Hackathon specific async function -->
+                    <div class="slide">
+                        <div class="code-block">
+                            <span class="comment">// 04_colosseum_hackathon_2026.ts</span><br>
+                            <span class="comment">// A launchpad for Web3 unicorns.</span><br><br>
+                            <span class="keyword">async function</span> <span class="function">launchColosseum</span>() {<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">await</span> <span class="variable">Phase</span>.<span class="function">init</span>(<span class="string">"1. Kickoff: The massive starting line."</span>);<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">await</span> <span class="variable">Phase</span>.<span class="function">run</span>(<span class="string">"2. Bootcamp: Intense devrel support & mentoring."</span>);<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">await</span> <span class="variable">Phase</span>.<span class="function">run</span>(<span class="string">"3. Opening Party: 150+ attendees in Berlin."</span>);<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">await</span> <span class="variable">Phase</span>.<span class="function">run</span>(<span class="string">"4. Build Station: 2 weeks of hands-on IRL building."</span>);<br>
+                            &nbsp;&nbsp;&nbsp;&nbsp;<span class="keyword">return</span> <span class="keyword">new</span> <span class="function">DemoDay</span>(<span class="string">"Final global pitches."</span>);<br>
+                            }
+                        </div>
+                    </div>
+
+                    <!-- Slide 5: Terminal Output -->
+                    <div class="slide terminal-mode-slide">
+                        <div class="code-block terminal-font">
+                            <span class="term-path">~/superteam/germany</span> <span class="term-branch">git:(main)</span> <span class="term-arrow">✗</span><br>
+                            $ <span class="term-cmd">npm run build-the-future</span><br><br>
+                            <span class="term-log">> Compiling Solana Ecosystem...</span><br>
+                            <span class="term-log">> Connecting nodes globally...</span><br>
+                            <span class="term-success">✔ Successfully initialized Web3 capital.</span><br><br>
+                            <span class="term-highlight">Stay Connected. Stay Ahead.</span><br>
+                            Your way into the Solana Ecosystem starts here.<br><br>
+                            > <span class="term-cursor">_</span>
+                        </div>
+                        <div style="position:absolute; bottom: 30px; right: 40px; display: flex; gap: 20px;">
+                            <img src="../logos/solana-white.png" height="30" style="opacity: 0.5;">
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Terminal status bar at the bottom -->
+            <div class="ide-footer">
+                <div class="footer-left">
+                    <span class="status-pill diff">⎇ main</span>
+                    <span class="status-pill err">0 ⚠</span>
+                </div>
+                <div class="footer-center">
+                    <span id="terminal-loader">Loading [..........] 0%</span>
+                </div>
+                <div class="footer-right">
+                    <span class="status-pill">TypeScript</span>
+                    <span class="status-pill">UTF-8</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

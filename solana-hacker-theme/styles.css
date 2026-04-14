@@ -1,0 +1,191 @@
+/* Base & Reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: #04080f; /* Very deep dark blue/black */
+    font-family: 'Fira Code', 'Courier New', Courier, monospace;
+    color: #e5e9f0;
+    overflow: hidden;
+}
+
+.desktop {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2vw;
+}
+
+/* Base Canvas for 16:9 */
+.canvas {
+    width: 100%;
+    max-width: calc(94vh * 16 / 9); 
+    aspect-ratio: 16 / 9;
+    background-color: #0d1117; /* GitHub Dark IDE background */
+    border: 1px solid #30363d;
+    border-radius: 8px;
+    box-shadow: 0px 40px 100px rgba(0,0,0,0.8), 0 0 0 1px rgba(153, 69, 255, 0.2);
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+/* Faux Window Bar */
+.ide-header {
+    height: 38px;
+    background-color: #161b22;
+    border-bottom: 1px solid #30363d;
+    display: flex;
+    align-items: center;
+    padding: 0 16px;
+}
+.mac-buttons { display: flex; gap: 8px; }
+.mac-btn { width: 12px; height: 12px; border-radius: 50%; }
+.close { background-color: #ff5f56; }
+.min { background-color: #ffbd2e; }
+.max { background-color: #27c93f; }
+
+.ide-title {
+    flex-grow: 1;
+    text-align: center;
+    font-size: 0.85rem;
+    color: #8b949e;
+    margin-right: 60px; /* Offset to center title against buttons */
+}
+
+/* Main IDE Body */
+.ide-body {
+    display: flex;
+    flex-grow: 1;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Visual Line Numbers */
+.sidebar-lines {
+    width: 50px;
+    background-color: #0d1117;
+    border-right: 1px solid #21262d;
+    text-align: right;
+    padding: 30px 15px 30px 0;
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #484f58;
+    user-select: none;
+}
+
+/* Slides Content Wrapper */
+.slides-wrapper {
+    flex-grow: 1;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    padding: 30px 40px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease; /* Fast, snappy fade like a terminal render */
+}
+.slide.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Code Syntax Highlighting colors mapped to Solana Themes */
+.code-block {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    color: #c9d1d9;
+    white-space: nowrap; /* keep code rigidly formatted */
+}
+
+.keyword { color: #ff7b72; } /* Pink/red */
+.variable { color: #d2a8ff; } /* Light purple */
+.string-key { color: #79c0ff; } /* Blue */
+.string { color: #a5d6ff; } /* Light blue */
+.number { color: #14F195; } /* Solana Green */
+.operator { color: #c9d1d9; }
+.comment { color: #8b949e; font-style: italic; }
+.type { color: #ffa657; }
+.function { color: #d2a8ff; }
+
+/* Terminal Slide Typography */
+.terminal-font {
+    font-size: 1.4rem;
+}
+.term-path { color: #14F195; font-weight: bold; }
+.term-branch { color: #79c0ff; }
+.term-arrow { color: #ff7b72; font-weight: bold; margin-right: 10px; }
+.term-cmd { color: #f2cc60; }
+.term-log { color: #8b949e; }
+.term-success { color: #14F195; font-weight: bold; }
+.term-highlight { color: #9945FF; font-weight: bold; font-size: 1.8rem; display: inline-block; margin-top: 20px;}
+.term-cursor {
+    display: inline-block;
+    width: 12px;
+    background-color: #c9d1d9;
+    animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* Decorative Superteam logo in terminal */
+.terminal-logo {
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    opacity: 0.15;
+}
+
+/* Footer Status Bar */
+.ide-footer {
+    height: 30px;
+    background-color: #14F195; /* Blazing Solana green status bar */
+    color: #0d1117;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 16px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+.ide-footer .footer-center {
+    font-family: 'Fira Code', monospace;
+    font-weight: bold;
+}
+.status-pill {
+    margin-right: 15px;
+}
+.status-pill.diff { color: #0d1117; }
+.status-pill.err { color: #0d1117; }
+
+/* PDF Export Logic */
+@media print {
+    @page { size: 16in 9in; margin: 0; }
+    body, html, .desktop { margin: 0; padding: 0; width: 100%; height: 100%; background: #000; }
+    
+    .canvas { display: none !important; }
+    .ide-header, .ide-footer { display: none !important; }
+    .sidebar-lines { width: 40px; padding: 40px 10px 40px 0; background: transparent !important; }
+    
+    .print-canvas {
+        background-color: #0d1117; /* retain the hacker dark color in print */
+        position: relative;
+        overflow: hidden;
+        break-after: page;
+        page-break-after: always;
+        width: 100vw !important;
+        height: 100vh !important;
+        margin: 0 !important;
+        border: none !important;
+        border-radius: 0 !important; 
+        display: flex;
+    }
+}

@@ -1,0 +1,299 @@
+/* Base Reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: #0b0f19; /* Deep dark background */
+    font-family: 'Inter', sans-serif;
+    color: #1a1f36;
+    overflow: hidden;
+}
+
+.desktop {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 2vw;
+}
+
+/* 16:9 Presentation Canvas Container */
+.canvas {
+    width: 100%;
+    max-width: calc(94vh * 16 / 9); 
+    aspect-ratio: 16 / 9;
+    background-color: #fbfbfc; /* Ultra-clean whiteish gray */
+    border-radius: 20px;
+    box-shadow: 0px 40px 100px rgba(0,0,0,0.5), 0px 0px 0px 1px rgba(255,255,255,0.05);
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Atmospheric Gradients */
+.ambient-glow {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.7;
+}
+.ambient-1 {
+    top: -20%; left: -10%;
+    width: 50vw; height: 50vw;
+    background: radial-gradient(circle, rgba(153, 69, 255, 0.4) 0%, transparent 60%); /* Solana Purple */
+}
+.ambient-2 {
+    bottom: -30%; right: -10%;
+    width: 60vw; height: 60vw;
+    background: radial-gradient(circle, rgba(20, 241, 149, 0.3) 0%, transparent 60%); /* Solana Green */
+}
+.ambient-3 {
+    top: 40%; left: 30%;
+    width: 40vw; height: 40vw;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, transparent 70%);
+    mix-blend-mode: overlay;
+}
+
+/* Global Elements */
+.brand-logo {
+    position: absolute;
+    top: 45px;
+    left: 60px;
+    height: 28px;
+    z-index: 20;
+}
+
+.progress-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 6px;
+    background-color: rgba(0,0,0,0.04);
+    z-index: 20;
+}
+.progress-bar {
+    height: 100%;
+    width: 0%;
+    background: linear-gradient(90deg, #9945FF, #14F195);
+    transition: width 0.6s cubic-bezier(0.76, 0, 0.24, 1);
+}
+
+/* The Slide Architecture */
+.slides-wrapper {
+    flex-grow: 1;
+    position: relative;
+    z-index: 10;
+}
+
+.slide {
+    position: absolute;
+    inset: 0; /* fills the slide wrapper */
+    padding: 120px 10% 80px 10%; /* Increased top padding to protect the logo */
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.6s ease-in-out;
+}
+.slide.active { opacity: 1; visibility: visible; }
+
+/* In-Slide Animations */
+.slide-fade-up {
+    transform: translateY(20px);
+    opacity: 0;
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1) 0.1s;
+}
+.active .slide-fade-up { transform: translateY(0); opacity: 1; }
+
+.slide-fade-in {
+    opacity: 0;
+    transition: opacity 0.8s ease 0.2s;
+}
+.active .slide-fade-in { opacity: 1; }
+
+.delay-1 { transition-delay: 0.15s !important; }
+.delay-2 { transition-delay: 0.3s !important; }
+
+/* Typography system */
+.hero-title {
+    font-family: 'Outfit', sans-serif;
+    font-size: min(5.5vw, 6.5rem);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: -0.03em;
+    color: #0d1117;
+    margin-bottom: 1rem;
+}
+.text-gradient {
+    background: linear-gradient(135deg, #14F195 0%, #9945FF 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+h2 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 3.5rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.5rem;
+    color: #0b0f19;
+}
+h3 {
+    font-family: 'Outfit', sans-serif;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+h4 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #0b0f19;
+}
+p {
+    font-size: clamp(16px, 1.3vw, 22px);
+    color: #586071;
+    line-height: 1.6;
+}
+.subtitle {
+    font-size: clamp(18px, 1.8vw, 30px);
+    color: #7b8396;
+    font-weight: 400;
+    max-width: 800px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 6px 16px;
+    background: rgba(20, 241, 149, 0.15);
+    color: #0a8f57;
+    font-weight: 600;
+    border-radius: 100px;
+    letter-spacing: 1px;
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+}
+
+/* Layout Utilities */
+.mt-m { margin-top: 1.5rem; }
+.mt-l { margin-top: 2.5rem; }
+.mt-xl { margin-top: 4rem; }
+.mb-l { margin-bottom: 3rem; }
+
+.layout-flex-center {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100%;
+}
+.layout-2col {
+    display: flex;
+    gap: 60px;
+    height: 100%;
+    align-items: center;
+}
+.col { flex: 1; display: flex; flex-direction: column; }
+.flex-center { justify-content: center; align-items: center; }
+.text-center { text-align: center; }
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+/* High-end UI elements */
+.modern-btn {
+    display: inline-block;
+    padding: 18px 40px;
+    background: #0b0f19;
+    color: #FFF;
+    border-radius: 100px;
+    font-family: 'Outfit', sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.modern-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 35px rgba(0,0,0,0.15);
+}
+
+.glass-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.8);
+    border-radius: 24px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.04);
+    width: 100%;
+}
+
+.icon-wrap {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.minimal-list { list-style: none; }
+.minimal-list li {
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+    font-size: clamp(16px, 1.4vw, 24px);
+    color: #333;
+}
+.minimal-list li:last-child { border-bottom: none; }
+.minimal-list strong {
+    color: #111;
+    font-family: 'Outfit', sans-serif;
+    font-size: 1.1em;
+    margin-right: 10px;
+}
+
+/* Special Dark Mode specific slide overrides */
+.dark-mode-slide {
+    background-color: #0b0f19;
+    color: white;
+    z-index: 25; /* overlay elements below it like black logos */
+}
+
+/* ========================================= */
+/* Print Styles for Multi-Page PDF Export    */
+/* ========================================= */
+@media print {
+    @page { 
+        size: 16in 9in; 
+        margin: 0; 
+    }
+    body, html { margin: 0; padding: 0; display: block; }
+    .desktop { display: block; max-width: none !important; width: 100%; padding: 0; }
+    
+    .canvas { display: none !important; }
+    
+    .print-canvas {
+        background-color: #fbfbfc;
+        position: relative;
+        overflow: hidden;
+        break-after: page;
+        page-break-after: always;
+        width: 100vw !important;
+        height: 100vh !important;
+        margin: 0 !important;
+        box-shadow: none !important; 
+        border: none !important;
+        border-radius: 0 !important;
+    }
+
+    /* Print animations disabled */
+    .slide-fade-up, .slide-fade-in {
+        transform: translateY(0) !important;
+        opacity: 1 !important;
+        transition: none !important;
+    }
+}

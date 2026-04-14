@@ -1,0 +1,210 @@
+/* Base Reset and Variables */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+    --bg-base: #F4F6F9; /* Very soft light cool-grey */
+    --surface: #FFFFFF;
+    
+    --text-main: #2A2E35;
+    --text-muted: #6B7280;
+    
+    /* Playful but premium palette */
+    --accent-green: #14F195;
+    --accent-purple: #9945FF;
+    --accent-blue: #3B82F6;
+    
+    /* Claymorphism Shadow Toolkit */
+    --shadow-light: #ffffff;
+    --shadow-dark: #d5d9e0;
+    
+    --soft-shadow: 20px 20px 40px var(--shadow-dark), -20px -20px 40px var(--shadow-light);
+    --inner-shadow: inset -5px -5px 15px rgba(255,255,255,0.8), inset 5px 5px 10px rgba(0,0,0,0.03);
+    
+    /* Heavy Card shadow for lifting */
+    --card-shadow: 25px 25px 50px var(--shadow-dark), -25px -25px 50px var(--shadow-light), var(--inner-shadow);
+    --btn-shadow: 10px 10px 20px var(--shadow-dark), -10px -10px 20px var(--shadow-light), var(--inner-shadow);
+}
+
+body {
+    background-color: #E2E6EC; /* Outer dark edge */
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    color: var(--text-main);
+    overflow: hidden;
+}
+
+.desktop {
+    width: 100vw; height: 100vh;
+    display: flex; justify-content: center; align-items: center; padding: 2vw;
+}
+
+/* 16:9 Presentation Canvas */
+.canvas {
+    width: 100%; max-width: calc(94vh * 16 / 9); aspect-ratio: 16 / 9;
+    background-color: var(--bg-base);
+    position: relative; overflow: hidden;
+    border-radius: 40px; /* Highly rounded corners */
+    box-shadow: 0 40px 100px rgba(0,0,0,0.1);
+    display: flex; flex-direction: column;
+}
+
+/* Background 3D Floating Orbs */
+.shape-orb {
+    position: absolute; border-radius: 50%;
+    z-index: 1; pointer-events: none;
+}
+.orb-1 {
+    width: 400px; height: 400px; top: -100px; right: -50px;
+    background: radial-gradient(circle at 30% 30%, #e0caff, #9945FF); /* Purple Sphere */
+    box-shadow: 20px 20px 60px rgba(153, 69, 255, 0.2), inset -20px -20px 60px rgba(0,0,0,0.1);
+    opacity: 0.15;
+}
+.orb-2 {
+    width: 300px; height: 300px; bottom: -50px; left: -100px;
+    background: radial-gradient(circle at 30% 30%, #aefadc, #14F195); /* Green Sphere */
+    box-shadow: 20px 20px 60px rgba(20, 241, 149, 0.2), inset -20px -20px 60px rgba(0,0,0,0.1);
+    opacity: 0.2;
+}
+.shape-pill {
+    position: absolute; border-radius: 100px;
+    width: 250px; height: 100px; top: 40%; right: 10%;
+    background: radial-gradient(circle at 30% 30%, #b3d1ff, #3B82F6);
+    box-shadow: 20px 20px 60px rgba(59, 130, 246, 0.1), inset -20px -20px 40px rgba(0,0,0,0.1);
+    opacity: 0.1;
+    transform: rotate(15deg); z-index: 1; pointer-events: none;
+}
+
+/* Global Navigation */
+.top-nav {
+    position: absolute; top: 0; left: 0; width: 100%;
+    padding: 40px 60px; display: flex; justify-content: space-between; align-items: center;
+    z-index: 50;
+}
+.nav-pill {
+    padding: 10px 20px; font-weight: 700; font-size: 0.85rem; color: var(--text-muted);
+    background: var(--bg-base); border-radius: 30px;
+    box-shadow: 5px 5px 15px var(--shadow-dark), -5px -5px 15px var(--shadow-light), var(--inner-shadow);
+}
+
+/* Base Slide Architecture */
+.slides-wrapper { flex-grow: 1; position: relative; z-index: 10; }
+.slide {
+    position: absolute; inset: 0; padding: 100px 80px 80px 80px;
+    opacity: 0; visibility: hidden; pointer-events: none;
+}
+.slide.active { opacity: 1; visibility: visible; pointer-events: auto; }
+
+/* Bouncy Animations */
+.bounce-in {
+    opacity: 0;
+    transform: translateY(40px) scale(0.9);
+    transition: opacity 0.6s ease, transform 0.8s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.active .bounce-in { opacity: 1; transform: translateY(0) scale(1); }
+.fade-in { opacity: 0; transition: opacity 1.5s ease; }
+.active .fade-in { opacity: 1; }
+
+.delay-1 { transition-delay: 0.1s; } .delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; } .delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+
+@media print { .bounce-in, .fade-in, .slide { transition: none !important; opacity: 1 !important; transform: none !important; } }
+
+/* Typography */
+.headline { font-size: clamp(3.5rem, 5.5vw, 5.5rem); font-weight: 800; letter-spacing: -0.03em; line-height: 1.1; color: var(--text-main); }
+.section-title { font-size: 2.5rem; font-weight: 700; color: var(--text-main); letter-spacing: -0.02em; }
+.body-text { font-size: 1.4rem; color: var(--text-muted); line-height: 1.6; font-weight: 500; }
+.text-center { text-align: center; } .text-left { text-align: left; }
+
+.mt-m { margin-top: 1.5rem; } .mt-l { margin-top: 3rem; } .mt-xl { margin-top: 4.5rem; } .mb-l { margin-bottom: 3rem;}
+
+/* Components */
+.badge-3d {
+    display: inline-block; padding: 12px 24px; font-size: 0.9rem; font-weight: 800; letter-spacing: 2px;
+    background: var(--surface); color: var(--accent-purple); border-radius: 50px;
+    box-shadow: var(--btn-shadow);
+}
+
+.btn-3d {
+    display: inline-block; padding: 20px 40px; font-size: 1.1rem; font-weight: 700;
+    border-radius: 50px; cursor: pointer; transition: transform 0.2s, box-shadow 0.2s;
+    background: var(--surface); color: var(--text-main);
+    box-shadow: var(--btn-shadow);
+}
+.btn-3d.primary {
+    background: var(--accent-green); color: #000;
+    box-shadow: 10px 10px 20px rgba(20, 241, 149, 0.3), -10px -10px 20px var(--shadow-light), inset -5px -5px 15px rgba(0,0,0,0.1), inset 5px 5px 10px rgba(255,255,255,0.4);
+}
+.btn-3d:active { transform: scale(0.95); box-shadow: inset 5px 5px 10px rgba(0,0,0,0.1); }
+
+/* Card Architecture */
+.card-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 40px; width: 100%; }
+.card-3d {
+    background: var(--surface); border-radius: 30px; padding: 40px;
+    box-shadow: var(--card-shadow);
+    display: flex; flex-direction: column; text-align: left;
+}
+.card-icon {
+    width: 60px; height: 60px; background: var(--accent-green); border-radius: 20px;
+    display: flex; justify-content: center; align-items: center; font-size: 1.8rem;
+    box-shadow: var(--btn-shadow); margin-bottom: 25px;
+}
+.card-3d h3 { font-size: 2rem; font-weight: 800; margin-bottom: 15px; }
+.card-3d p { font-size: 1.2rem; color: var(--text-muted); line-height: 1.5; font-weight: 500; }
+
+/* Large Pillar List layout */
+.pillar-list { display: flex; flex-direction: column; gap: 30px; }
+.pillar-row {
+    background: var(--surface); border-radius: 40px; padding: 30px 40px;
+    box-shadow: var(--card-shadow); display: flex; align-items: center; gap: 30px;
+}
+.pillar-tag {
+    width: 80px; height: 80px; background: var(--accent-green); border-radius: 50%;
+    display: flex; justify-content: center; align-items: center; font-size: 2.5rem; font-weight: 800; color: #fff;
+    box-shadow: inset -5px -5px 15px rgba(0,0,0,0.1), inset 5px 5px 15px rgba(255,255,255,0.4); flex-shrink:0;
+}
+.pillar-content h3 { font-size: 2rem; font-weight: 800; margin-bottom: 10px; }
+.pillar-content p { font-size: 1.3rem; color: var(--text-muted); font-weight: 500;}
+
+/* Timeline Flow */
+.timeline-container {
+    display: flex; align-items: center; justify-content: space-between;
+    background: var(--surface); border-radius: 100px; padding: 30px 50px;
+    box-shadow: var(--card-shadow);
+}
+.timeline-step { display: flex; flex-direction: column; align-items: center; gap: 15px; width: 120px;}
+.step-ball {
+    width: 50px; height: 50px; background: var(--accent-green); border-radius: 50%;
+    color: #fff; font-weight: 700; display: flex; justify-content: center; align-items: center; font-size: 1.4rem;
+    box-shadow: inset -5px -5px 10px rgba(0,0,0,0.1), inset 5px 5px 10px rgba(255,255,255,0.4);
+}
+.step-text { font-weight: 700; font-size: 1.1rem; color: var(--text-main); text-align:center;}
+.timeline-line { flex-grow: 1; height: 10px; background: var(--bg-base); border-radius: 10px; box-shadow: inset 2px 2px 5px rgba(0,0,0,0.05); margin: 0 10px; transform: translateY(-15px);}
+
+/* Layouts */
+.layout-cinematic { display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; height: 100%; position: relative;}
+.layout-standard { display: flex; flex-direction: column; height: 100%; position: relative;}
+
+/* Subtle 3D progress bar */
+.progress-bar-container {
+    position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
+    width: 300px; height: 14px; background: var(--surface); border-radius: 10px;
+    box-shadow: var(--btn-shadow); z-index: 50; overflow: hidden;
+}
+.progress-fill {
+    height: 100%; background: var(--accent-purple); border-radius: 10px;
+    width: 0%; transition: width 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: inset -2px -2px 5px rgba(0,0,0,0.1), inset 2px 2px 5px rgba(255,255,255,0.4);
+}
+
+/* PDF Support */
+@media print {
+    @page { size: 16in 9in; margin: 0; }
+    body, html, .desktop { margin: 0; padding: 0; width: 100%; height: 100%; }
+    .canvas { display: none !important; }
+    .print-canvas {
+        background-color: var(--bg-base); position: relative; overflow: hidden;
+        break-after: page; page-break-after: always;
+        width: 100vw !important; height: 100vh !important;
+        margin: 0 !important; border: none !important; border-radius: 0 !important; display: flex; flex-direction: column;
+    }
+}

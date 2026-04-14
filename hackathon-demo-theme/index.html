@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hackathon Pitch - Nexis</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="desktop">
+        <div class="canvas" id="presentation-canvas">
+
+            <!-- Deep Ambient Launch Glow -->
+            <div class="ambient-mesh"></div>
+
+            <!-- Global Minimal Header -->
+            <div class="global-navbar">
+                <div class="nav-brand">NEXIS / DEMO DAY 2026</div>
+                <div class="nav-tracker" id="nav-tracker">
+                    <!-- Tracker dots injected via JS -->
+                </div>
+            </div>
+
+            <div class="slides-wrapper" id="slides-wrapper">
+                
+                <!-- 1. Title / One-line Thesis -->
+                <div class="slide">
+                    <div class="layout-hero fade-up">
+                        <div class="hero-glow"></div>
+                        <h1 class="font-display headline-mega mt-m">NEXIS</h1>
+                        <p class="font-display body-hero text-highlight mt-s">The universal cross-margin liquidity router for Solana.</p>
+                        <div class="mt-l code-badge">
+                            <code>cargo build --release --bin nexis-core</code>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Problem -->
+                <div class="slide">
+                    <div class="layout-standard fade-up">
+                        <h2 class="font-display section-title mb-l">The Slippage Bleed</h2>
+                        <div class="split-grid h-full">
+                            <div class="flex-col">
+                                <h3 class="font-display stat-block text-red">4.2%</h3>
+                                <p class="body-standard text-muted mt-m">Average capital efficiency lost to fragmented liquidity pools, bad routing, and front-running MEV bots on major volume days.</p>
+                            </div>
+                            <div class="ui-glass-panel border-red">
+                                <div class="mock-trade red-pulse">
+                                    <span class="mono">Failed Route Hash:<br>5XyQ...9z1A</span>
+                                    <span class="mono text-red mt-s">Error: Slippage Exceeded</span>
+                                </div>
+                                <div class="mock-trade mt-m">
+                                    <span class="mono">MEV Attack Detected</span>
+                                    <span class="mono text-red mt-s">-$14,202.00 Value Lost</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Why Now -->
+                <div class="slide">
+                    <div class="layout-standard fade-up">
+                        <h2 class="font-display section-title mb-m text-center">Why This Is Possible Now</h2>
+                        
+                        <div class="convergence-layout h-full mt-l">
+                            <div class="c-node">
+                                <strong>Sub-cent Fees</strong>
+                                <span>Solana network base fees</span>
+                            </div>
+                            <div class="c-edge"></div>
+                            <div class="c-node core-node">
+                                <strong class="text-green">NEXIS COMPUTE</strong>
+                                <span>Viable in 2026</span>
+                            </div>
+                            <div class="c-edge"></div>
+                            <div class="c-node">
+                                <strong>Firedancer</strong>
+                                <span>1M+ TPS architecture</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Product Walkthrough -->
+                <div class="slide">
+                    <div class="layout-standard fade-up">
+                        <h2 class="font-display section-title mb-s">One-Click Execution</h2>
+                        <p class="body-standard text-muted">Abstracting complex cross-chain liquidity into a single swap interface.</p>
+                        
+                        <div class="flex-center h-full mt-l">
+                            <div class="ui-app-mockup">
+                                <div class="app-header">Swap Infrastructure</div>
+                                <div class="app-body">
+                                    <div class="input-block">
+                                        <span>PAY</span>
+                                        <strong class="text-white">100,000 USDC</strong>
+                                    </div>
+                                    <div class="swap-icon">↓</div>
+                                    <div class="input-block">
+                                        <span>RECEIVE (ESTIMATED)</span>
+                                        <strong class="text-green">691.42 SOL</strong>
+                                    </div>
+                                    <div class="route-details mt-m">
+                                        <div class="route-pill">Raydium (40%)</div>
+                                        <div class="route-pill">Orca (45%)</div>
+                                        <div class="route-pill">Phoenix (15%)</div>
+                                    </div>
+                                    <div class="action-btn mt-l">EXECUTE ROUTE</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Technical Edge -->
+                <div class="slide">
+                    <div class="layout-standard fade-up">
+                        <h2 class="font-display section-title mb-l">The Architecture</h2>
+                        <div class="arch-diagram h-full">
+                            <div class="arch-column">
+                                <div class="arch-box off-chain">
+                                    <strong>Off-Chain Rust Engine</strong>
+                                    <span class="mono">Calculates optimal graph path<br>Latency: 8ms</span>
+                                </div>
+                            </div>
+                            <div class="arch-connector"><span class="mono text-green">Gossip Protocol Sync</span></div>
+                            <div class="arch-column">
+                                <div class="arch-box on-chain">
+                                    <strong>On-Chain SVM Anchor Program</strong>
+                                    <span class="mono">Atomic settlement via CPI<br>Cost: 0.000005 SOL</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 6. Ecosystem Relevance -->
+                <div class="slide">
+                    <div class="layout-standard fade-up text-center">
+                        <h2 class="font-display section-title mb-s">Plugging Into The Ecosystem</h2>
+                        <p class="body-standard text-muted">Nexis does not compete with DEXs. We aggregate them.</p>
+                        
+                        <div class="ecosystem-grid h-full mt-l">
+                            <div class="eco-card">JUPITER</div>
+                            <div class="eco-card">ORCA</div>
+                            <div class="eco-card">RAYDIUM</div>
+                            <div class="eco-card">DRIFT</div>
+                            <div class="eco-card">PHOENIX</div>
+                            <div class="eco-card">METEORA</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 7. Traction -->
+                <div class="slide">
+                    <div class="layout-standard fade-up">
+                        <h2 class="font-display section-title mb-l">Built in 14 days.</h2>
+                        
+                        <div class="hackathon-stats h-full">
+                            <div class="stat-card border-green">
+                                <div class="mono text-green mb-s">01 // CODEBASE</div>
+                                <h3 class="stat-large">18,400</h3>
+                                <p class="body-small text-muted">Lines of Rust written during the sprint.</p>
+                            </div>
+                            <div class="stat-card border-blue">
+                                <div class="mono text-blue mb-s">02 // TESTNET</div>
+                                <h3 class="stat-large text-white">450K+</h3>
+                                <p class="body-small text-muted">Successful atomic routes processed.</p>
+                            </div>
+                            <div class="stat-card border-white">
+                                <div class="mono text-muted mb-s">03 // RELIABILITY</div>
+                                <h3 class="stat-large">0%</h3>
+                                <p class="body-small text-muted">Failed transactions in rigorous load testing.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 8. Ask / Closing -->
+                <div class="slide">
+                    <div class="layout-hero fade-up text-center h-full flex-col justify-center align-center">
+                        <h1 class="font-display headline-mega mb-s">NEXIS</h1>
+                        <p class="body-large text-green font-display letter-spaced">MAINNET Q4</p>
+                        
+                        <div class="ask-box mt-xl">
+                            <strong>RAISING $1.5M SEED</strong>
+                            <span>To expand the core engineering team and audit the smart contracts.</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

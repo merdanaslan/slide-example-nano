@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Retro Pixel Theme - Superteam Germany</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="desktop">
+        <div class="canvas" id="presentation-canvas">
+
+            <!-- Scanline / CRT overlay -->
+            <div class="crt-overlay"></div>
+
+            <!-- Arcade Header -->
+            <div class="arcade-header">
+                <div>SCORE: <span class="text-green">0015000000</span></div>
+                <div>STAGE: <span id="stage-tracker">01</span></div>
+                <div>TIME: <span class="text-yellow">99</span></div>
+            </div>
+
+            <div class="slides-wrapper" id="slides-wrapper">
+                
+                <!-- 1. Title Screen -->
+                <div class="slide">
+                    <div class="layout-center align-center h-full fade-in text-center">
+                        <div class="pixel-box px-xl mb-xl">
+                            <h1 class="headline-large text-yellow shadow-pixel text-glow mt-s mb-s">SUPERTEAM<br>GERMANY</h1>
+                        </div>
+                        <p class="body-large text-white mb-xl">ECOSYSTEM EXPANSION PROTOCOL</p>
+                        <div class="blink-fast mt-xl">
+                            <h2 class="body-large text-magenta">▶ PRESS ANY KEY TO START</h2>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Quest Log (Problem context) -->
+                <div class="slide">
+                    <div class="layout-standard align-center h-full justify-center fade-in text-center">
+                        <div class="pixel-box max-w-800 p-l">
+                            <h2 class="headline-medium text-cyan mb-m">[ MAIN QUEST LOG ]</h2>
+                            <p class="body-large text-white mb-m">
+                                Objective: Locate and extract latent systems engineering talent across the European sector.
+                            </p>
+                            <div class="pixel-divider my-m"></div>
+                            <div class="grid-two text-left">
+                                <div>
+                                    <h3 class="text-yellow headline-medium">15M+</h3>
+                                    <p class="body-standard text-white">Target Units</p>
+                                </div>
+                                <div>
+                                    <h3 class="text-red headline-medium">&lt;1%</h3>
+                                    <p class="body-standard text-white">SVM Compatibility</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Character Select (The 3 Pillars) -->
+                <div class="slide">
+                    <div class="layout-standard h-full fade-in">
+                        <h2 class="headline-medium text-yellow mb-l text-center">CHOOSE YOUR PATH</h2>
+                        
+                        <div class="grid-three h-full gap-l">
+                            <!-- Empower -->
+                            <div class="pixel-box flex-col justify-space hover-bounce bg-dark-blue">
+                                <div>
+                                    <h3 class="text-cyan body-large mb-s">CLASS: EDUCATOR</h3>
+                                    <div class="pixel-divider mb-s"></div>
+                                    <p class="body-standard text-white">Deploying open-source repos and running rigorous university level technical bootcamps.</p>
+                                </div>
+                                <div class="sprite-placeholder bg-cyan text-black mt-m">EMPOWER</div>
+                            </div>
+                            <!-- Connect -->
+                            <div class="pixel-box flex-col justify-space hover-bounce bg-dark-blue">
+                                <div>
+                                    <h3 class="text-magenta body-large mb-s">CLASS: BROKER</h3>
+                                    <div class="pixel-divider mb-s"></div>
+                                    <p class="body-standard text-white">Anchoring physical locations across Berlin and Munich to force serendipity.</p>
+                                </div>
+                                <div class="sprite-placeholder bg-magenta text-white mt-m">CONNECT</div>
+                            </div>
+                            <!-- Accelerate -->
+                            <div class="pixel-box flex-col justify-space hover-bounce bg-dark-blue">
+                                <div>
+                                    <h3 class="text-green body-large mb-s">CLASS: BUILDER</h3>
+                                    <div class="pixel-divider mb-s"></div>
+                                    <p class="body-standard text-white">Deploying rapid micro-grants and bypassing VC gatekeepers for scale.</p>
+                                </div>
+                                <div class="sprite-placeholder bg-green text-black mt-m">ACCELERATE</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. World Map (Hackathon Timeline) -->
+                <div class="slide">
+                    <div class="layout-standard h-full fade-in">
+                        <h2 class="headline-medium text-cyan mb-l text-center">WORLD MAP: COLOSSEUM '26</h2>
+                        
+                        <div class="pixel-box flex-center h-full p-l bg-dark-blue">
+                            <div class="flex-row-center w-full justify-space px-l">
+                                <!-- Level 1 -->
+                                <div class="level-node flex-col align-center">
+                                    <div class="node-icon completed">Lv.1</div>
+                                    <span class="text-yellow mt-s body-standard">KICKOFF</span>
+                                </div>
+                                <div class="node-line completed"></div>
+                                <!-- Level 2 -->
+                                <div class="level-node flex-col align-center">
+                                    <div class="node-icon completed">Lv.2</div>
+                                    <span class="text-yellow mt-s body-standard">BOOTCAMP</span>
+                                </div>
+                                <div class="node-line"></div>
+                                <!-- Level 3 -->
+                                <div class="level-node flex-col align-center">
+                                    <div class="node-icon active blink-slow">Lv.3</div>
+                                    <span class="text-white mt-s body-standard">W3.HUB</span>
+                                </div>
+                                <div class="node-line"></div>
+                                <!-- Level 4 -->
+                                <div class="level-node flex-col align-center">
+                                    <div class="node-icon locked">?</div>
+                                    <span class="text-grey mt-s body-standard">BOSS FIGHT</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. Continue / Game Over CTA -->
+                <div class="slide">
+                    <div class="layout-center align-center h-full fade-in text-center">
+                        <h1 class="headline-large text-red shadow-pixel mb-m text-glow">CONTINUE?</h1>
+                        <h2 class="headline-mega text-yellow mb-l blink-slow">9</h2>
+                        
+                        <div class="pixel-box border-magenta p-m">
+                            <h3 class="body-large text-white mb-s">INSERT COIN TO JOIN ECOSYSTEM</h3>
+                            <a href="#" class="body-standard text-cyan no-underline hover-magenta">&gt; de.superteam.fun <span class="blink-fast">_</span></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

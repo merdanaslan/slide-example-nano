@@ -1,0 +1,267 @@
+/* Base Reset & Apple Typography */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    background-color: #000000;
+    font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    color: #f5f5f7; /* Apple's classic off-white */
+    overflow: hidden;
+}
+
+.desktop {
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* 16:9 Presentation Canvas */
+.canvas {
+    width: 100%;
+    height: 100%;
+    background-color: #000000;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Slide Architecture */
+.slides-wrapper {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    visibility: hidden;
+    opacity: 0;
+    transform: scale(1.03); /* Subtle scale-in effect like Keynote */
+    transition: opacity 1.2s cubic-bezier(0.16, 1, 0.3, 1), transform 1.2s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+}
+
+.slide.active {
+    visibility: visible;
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Sequential Fade Logic (Triggers when slide is active) */
+.fade-element {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.active .fade-element {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.2s; }
+.delay-2 { transition-delay: 0.4s; }
+.delay-3 { transition-delay: 0.6s; }
+/* Clean up transitions for printing */
+@media print { .fade-element { transition: none !important; opacity: 1 !important; transform: none !important; } .slide { transition: none !important; transform: none !important; } }
+
+/* Typography */
+.headline {
+    font-size: clamp(4rem, 7vw, 7.5rem);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1.05;
+    color: #f5f5f7;
+    text-align: center;
+}
+
+.subheadline {
+    font-size: 2.2rem;
+    font-weight: 500;
+    color: #86868b;
+    letter-spacing: -0.015em;
+    text-align: center;
+}
+
+.body-text {
+    font-size: 1.6rem;
+    font-weight: 400;
+    color: #a1a1a6;
+    line-height: 1.4;
+    text-align: center;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mega-stat {
+    font-size: clamp(8rem, 15vw, 15rem);
+    font-weight: 700;
+    letter-spacing: -0.05em;
+    line-height: 1;
+    text-align: center;
+}
+
+.text-gradient {
+    /* Classic apple subtle metallic gradient */
+    background: linear-gradient(135deg, #fff 0%, #86868b 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.text-left { text-align: left; margin-left: 0; margin-right: 0; }
+
+/* Utilities */
+.mb-s { margin-bottom: 1rem; }
+.mt-m { margin-top: 2rem; }
+.mt-l { margin-top: 3rem; }
+.mt-xl { margin-top: 4rem; }
+
+/* Layouts */
+.layout-cinematic {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10%;
+}
+
+.layout-top-align {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 10%;
+}
+
+.layout-split {
+    flex: 1;
+    display: flex;
+    padding: 10%;
+    align-items: center;
+    gap: 8%;
+}
+
+.split-left { flex: 1.2; }
+.split-right { flex: 1; }
+
+/* Components */
+.feature-grid {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+}
+
+.feature-item {
+    flex: 1;
+    text-align: left;
+}
+.sf-icon {
+    font-size: 3.5rem;
+    color: #14F195; /* Subtle solana green hint */
+    margin-bottom: 1.5rem;
+}
+.feature-item h3 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    color: #f5f5f7;
+    margin-bottom: 0.8rem;
+    letter-spacing: -0.02em;
+}
+.feature-item p {
+    font-size: 1.3rem;
+    color: #86868b;
+    line-height: 1.5;
+}
+
+/* Spec List (Technical specs look) */
+.spec-list {
+    list-style: none;
+    border-top: 1px solid #424245;
+}
+.spec-list li {
+    padding: 24px 0;
+    border-bottom: 1px solid #424245;
+    font-size: 1.8rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.spec-list strong {
+    font-weight: 500;
+    color: #f5f5f7;
+    letter-spacing: -0.02em;
+}
+.spec-detail {
+    color: #86868b;
+    font-size: 1.3rem;
+}
+
+/* Buttons */
+.apple-btn {
+    display: inline-block;
+    background-color: #0071e3; /* Apple Blue */
+    color: white;
+    font-size: 1.4rem;
+    font-weight: 400;
+    padding: 18px 36px;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+.apple-btn:hover { background-color: #0077ED; }
+
+/* Dot Indicators */
+.dot-indicators {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 12px;
+    z-index: 50;
+}
+.dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: rgba(255,255,255,0.2);
+    transition: background-color 0.5s;
+}
+.dot.active {
+    background-color: #fff;
+}
+
+/* Inverted White Slide */
+.white-mode-slide {
+    background-color: #f5f5f7;
+}
+
+/* ========================================= */
+/* Print Styles for Multi-Page PDF Export    */
+/* ========================================= */
+@media print {
+    @page { size: 16in 9in; margin: 0; }
+    body, html, .desktop { margin: 0; padding: 0; width: 100%; height: 100%; background: #000; }
+    
+    .canvas { display: none !important; }
+    .dot-indicators { display: none !important; }
+    
+    .print-canvas {
+        background-color: #000;
+        position: relative;
+        overflow: hidden;
+        break-after: page;
+        page-break-after: always;
+        width: 100vw !important;
+        height: 100vh !important;
+        margin: 0 !important;
+        box-shadow: none !important; 
+        border: none !important;
+        border-radius: 0 !important;
+    }
+}

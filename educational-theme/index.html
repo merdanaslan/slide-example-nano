@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educational Theme - Superteam Germany</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="desktop">
+        <div class="canvas" id="presentation-canvas">
+
+            <!-- Friendly Custom Progress Bar -->
+            <div class="edu-progress-container">
+                <div class="edu-progress-fill" id="edu-progress"></div>
+            </div>
+
+            <!-- Header Branding -->
+            <div class="edu-header">
+                <img src="../logos/superteam-black.png" height="20" alt="Superteam">
+                <span class="lesson-tag">LESSON 01: Ecosystem Basics</span>
+            </div>
+
+            <div class="slides-wrapper" id="slides-wrapper">
+                
+                <!-- Slide 1: Welcome / Title -->
+                <div class="slide">
+                    <div class="layout-center fade-in text-center">
+                        <div class="badge-rounded mb-m" style="background:#Fef3c7;">👋 Welcome to Class</div>
+                        <h1 class="headline-large">What exactly is<br>Superteam Germany?</h1>
+                        <p class="body-large mt-m">A beginner's guide to how we are building the next internet.</p>
+                    </div>
+                </div>
+
+                <!-- Slide 2: The Status Quo -->
+                <div class="slide">
+                    <div class="layout-center fade-in">
+                        <h2 class="headline-medium mb-xl text-center">The internet is upgrading.<br>But the builders are stuck.</h2>
+                        
+                        <div class="flex-row-center gap-xl">
+                            <div class="edu-box text-center" style="background:#f1f5f9;">
+                                <div class="emoji-huge mb-s">🕸️</div>
+                                <h3>Web2 (Today)</h3>
+                                <p class="body-small mt-s">Closed systems, centralized servers, high fees.</p>
+                            </div>
+                            <div class="arrow-indicator">➔</div>
+                            <div class="edu-box text-center highlight-blue">
+                                <div class="emoji-huge mb-s">⚡</div>
+                                <h3>Web3 (Tomorrow)</h3>
+                                <p class="body-small mt-s">Open networks, ownership, global scale.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3: The Data (Memorable Stat) -->
+                <div class="slide">
+                    <div class="layout-center fade-in text-center">
+                        <h1 class="stat-massive text-blue">15,000,000</h1>
+                        <p class="body-large mt-m max-w-600 mx-auto">That's the number of talented software developers in Europe.</p>
+                        <div class="pill-highlight mt-l bg-red-soft">
+                            But less than 1% know how to build on Web3 infrastructure.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 4: Visual Metaphor (The Bridge) -->
+                <div class="slide bg-blue-soft">
+                    <div class="layout-center fade-in">
+                        <h2 class="headline-medium mb-l text-center">Think of us as the bridge.</h2>
+                        
+                        <!-- Simple visual metaphor using CSS -->
+                        <div class="bridge-container mt-l">
+                            <div class="bridge-platform text-blue">Classic Developers</div>
+                            <div class="bridge-arch">
+                                <div class="bridge-label">SUPERTEAM GERMANY</div>
+                            </div>
+                            <div class="bridge-platform text-solana">Solana Ecosystem</div>
+                        </div>
+                        <p class="body-standard mt-xl text-center">We provide the path to cross over safely and quickly.</p>
+                    </div>
+                </div>
+
+                <!-- Slide 5: Pillar 1 -->
+                <div class="slide">
+                    <div class="layout-split fade-in">
+                        <div class="flex-col">
+                            <div class="step-circle mb-m" style="background:#fef08a;">1</div>
+                            <h2 class="headline-large">We Educate.</h2>
+                            <p class="body-large mt-m">We don't expect you to know Web3.</p>
+                            <p class="body-standard mt-s text-muted">We distribute open-source code and run rigorous, free technical bootcamps directly in universities to upskill developers.</p>
+                        </div>
+                        <div class="flex-center">
+                            <div class="big-illustration">📚</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 6: Pillar 2 -->
+                <div class="slide">
+                    <div class="layout-split fade-in">
+                        <div class="flex-col">
+                            <div class="step-circle mb-m" style="background:#bbf7d0;">2</div>
+                            <h2 class="headline-large">We Connect.</h2>
+                            <p class="body-large mt-m">Building alone is impossible.</p>
+                            <p class="body-standard mt-s text-muted">We anchor physical 'w3.hubs' in Berlin so founders, engineers, and creatives can meet face-to-face and build together.</p>
+                        </div>
+                        <div class="flex-center">
+                            <div class="big-illustration">🤝</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 7: Pillar 3 -->
+                <div class="slide">
+                    <div class="layout-split fade-in">
+                        <div class="flex-col">
+                            <div class="step-circle mb-m" style="background:#e9d5ff;">3</div>
+                            <h2 class="headline-large">We Fund.</h2>
+                            <p class="body-large mt-m">Ideas need immediate runway.</p>
+                            <p class="body-standard mt-s text-muted">We bypass long, boring VC processes to provide fast micro-grants directly from the Solana Foundation.</p>
+                        </div>
+                        <div class="flex-center">
+                            <div class="big-illustration">💸</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 8: The Hackathon (Application) -->
+                <div class="slide">
+                    <div class="layout-center fade-in">
+                        <div class="badge-rounded mb-m" style="background:#e2e8f0;">Real World Example</div>
+                        <h2 class="headline-medium mb-l">The Colosseum Hackathon</h2>
+                        
+                        <div class="edu-steps-row">
+                            <div class="edu-step-card">
+                                <strong>Kickoff</strong>
+                                <p>Learn the basics.</p>
+                            </div>
+                            <div class="edu-step-arrow">➔</div>
+                            <div class="edu-step-card">
+                                <strong>Build</strong>
+                                <p>14 days in our hub.</p>
+                            </div>
+                            <div class="edu-step-arrow">➔</div>
+                            <div class="edu-step-card highlight-green">
+                                <strong>Launch</strong>
+                                <p>Pitch to global VCs.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 9: Recap -->
+                <div class="slide bg-yellow-soft">
+                    <div class="layout-standard fade-in" style="justify-content:center; max-width:800px; margin:auto;">
+                        <h2 class="headline-medium mb-l">To summarize...</h2>
+                        
+                        <ul class="recap-list">
+                            <li><strong>The Problem:</strong> Millions of devs, but zero local ramps to Web3.</li>
+                            <li><strong>The Goal:</strong> Superteam acts as the talent funnel.</li>
+                            <li><strong>The Method:</strong> Free education, physical coworking hubs, and fast funding.</li>
+                            <li><strong>The Outcome:</strong> High-growth startups launching natively on Solana.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Slide 10: Closing -->
+                <div class="slide">
+                    <div class="layout-center fade-in text-center">
+                        <div class="emoji-huge mb-m">🎒</div>
+                        <h1 class="headline-large mb-m">Class dismissed.</h1>
+                        <p class="body-large text-muted">Ready to start building?</p>
+                        <div class="mt-l">
+                            <span class="btn-friendly highlight-blue">de.superteam.fun</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
