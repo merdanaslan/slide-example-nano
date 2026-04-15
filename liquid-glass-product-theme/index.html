@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liquid Glass Product — Superteam Germany</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="desktop">
+        <div class="canvas">
+            <div class="blob pb1"></div>
+            <div class="blob pb2"></div>
+
+            <nav class="prod-nav">
+                <img src="../logos/superteam-black.png" height="16" alt="Superteam">
+                <div class="prod-controls">
+                    <div class="ctrl-btn">←</div>
+                    <span class="ctrl-label" id="ctrl-label">1 of 5</span>
+                    <div class="ctrl-btn" id="ctrl-next">→</div>
+                </div>
+            </nav>
+
+            <div class="slides-wrapper" id="slides-wrapper">
+
+                <!-- 1. Hero + Mockup -->
+                <div class="slide">
+                    <div class="prod-split-hero fade-in">
+                        <div class="prod-left">
+                            <p class="prod-eyebrow mb-m">INTRODUCING</p>
+                            <h1 class="prod-headline mb-l">w3.hub<br>Berlin.</h1>
+                            <p class="prod-body text-muted max-w-400">Europe's first Web3 builder hub. A permanent home for the next wave of Solana founders.</p>
+                        </div>
+                        <div class="prod-right">
+                            <!-- CSS-drawn app screen mockup -->
+                            <div class="device-frame">
+                                <div class="device-screen">
+                                    <div class="screen-header">
+                                        <div class="screen-dot"></div>
+                                        <div class="screen-bar"></div>
+                                        <div class="screen-dot"></div>
+                                    </div>
+                                    <div class="screen-hero-block">
+                                        <div class="screen-label">SUPERTEAM</div>
+                                        <div class="screen-big-text">Build.</div>
+                                    </div>
+                                    <div class="screen-stat-row">
+                                        <div class="sscard">
+                                            <div class="ss-val">150+</div>
+                                            <div class="ss-key">Members</div>
+                                        </div>
+                                        <div class="sscard">
+                                            <div class="ss-val">$4M</div>
+                                            <div class="ss-key">Grants</div>
+                                        </div>
+                                    </div>
+                                    <div class="screen-btn-row">
+                                        <div class="screen-cta">Apply Now →</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 2. Feature — Education -->
+                <div class="slide">
+                    <div class="prod-split fade-in">
+                        <div class="prod-left">
+                            <p class="prod-eyebrow mb-m">EDUCATION</p>
+                            <h2 class="prod-section-title mb-l">Learn Solana<br>from scratch.</h2>
+                            <p class="prod-body text-muted max-w-400">Open-source repos and university-grade bootcamps available to every European developer.</p>
+                        </div>
+                        <div class="prod-right">
+                            <div class="glass-feature-card">
+                                <div class="gfc-header">
+                                    <span class="gfc-icon">📚</span>
+                                    <span class="gfc-title">Curriculum v2.0</span>
+                                </div>
+                                <div class="gfc-progress mt-l">
+                                    <div class="progress-row"><span>Rust Fundamentals</span><div class="prog-bar"><div class="prog-fill" style="width:100%"></div></div></div>
+                                    <div class="progress-row"><span>Solana Programs</span><div class="prog-bar"><div class="prog-fill" style="width:82%"></div></div></div>
+                                    <div class="progress-row"><span>DeFi Architecture</span><div class="prog-bar"><div class="prog-fill" style="width:64%"></div></div></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. Feature — Hub -->
+                <div class="slide">
+                    <div class="prod-split fade-in">
+                        <div class="prod-left">
+                            <p class="prod-eyebrow mb-m">INFRASTRUCTURE</p>
+                            <h2 class="prod-section-title mb-l">A place to<br>actually build.</h2>
+                            <p class="prod-body text-muted max-w-400">Two permanent hubs in Berlin and Munich — open to all members 24/7 with dedicated sprint weeks.</p>
+                        </div>
+                        <div class="prod-right">
+                            <div class="hub-map-card">
+                                <div class="map-pin pin-berlin">
+                                    <div class="pin-dot"></div>
+                                    <span>Berlin</span>
+                                </div>
+                                <div class="map-line"></div>
+                                <div class="map-pin pin-munich">
+                                    <div class="pin-dot"></div>
+                                    <span>Munich</span>
+                                </div>
+                                <div class="map-stat mt-xl">2 hubs · 150+ members · always open</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 4. Feature — Grants -->
+                <div class="slide">
+                    <div class="prod-split fade-in">
+                        <div class="prod-left">
+                            <p class="prod-eyebrow mb-m">CAPITAL</p>
+                            <h2 class="prod-section-title mb-l">Funding in<br>days, not months.</h2>
+                            <p class="prod-body text-muted max-w-400">Micro-grants deployed directly from the Solana Foundation with zero institutional gatekeeping.</p>
+                        </div>
+                        <div class="prod-right">
+                            <div class="grant-card">
+                                <div class="grant-header">
+                                    <span class="grant-badge">✓ APPROVED</span>
+                                    <span class="grant-amount">$26,000</span>
+                                </div>
+                                <div class="grant-details mt-l">
+                                    <div class="grant-row"><span>Project</span><span>DeFi Aggregator</span></div>
+                                    <div class="grant-row"><span>Timeline</span><span>48 hours</span></div>
+                                    <div class="grant-row"><span>Source</span><span>Solana Foundation</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 5. CTA -->
+                <div class="slide">
+                    <div class="layout-center fade-in text-center">
+                        <p class="prod-eyebrow mb-l">GET STARTED</p>
+                        <h1 class="prod-headline mb-l">Available now.</h1>
+                        <p class="prod-body text-muted max-w-500 mx-auto mb-xl">Colosseum 2026 applications closing soon. Join 150+ builders already inside.</p>
+                        <div class="prod-cta-btn">Apply at de.superteam.fun →</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
